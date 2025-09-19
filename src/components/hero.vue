@@ -10,7 +10,7 @@
       <h1 class="text-5xl md:text-6xl font-bold mt-2">Riccardo Cassis</h1>
       <p class="text-cyan-500 text-xl md:text-2xl mt-2">Product and web designer</p>
 
-      <!-- 👇 Icône subito sotto i testi -->
+     
       <socialIcons class="mt-6" />
     </div>
   </div>

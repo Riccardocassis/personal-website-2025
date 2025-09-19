@@ -1,13 +1,11 @@
+<script setup>
+import Navbar from './components/navbar.vue'
+import Hero from './components/hero.vue'
+</script>
+
 <template>
-  <div class="min-h-screen bg-black text-white">
-    <navbar />
-    <hero />
- 
+  <div class="bg-black text-white min-h-screen">
+    <Navbar />
+    <Hero />
   </div>
 </template>
-
-<script setup>
-import navbar from './components/navbar.vue'
-import hero from './components/hero.vue'
-
-</script>
