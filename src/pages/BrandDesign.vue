@@ -15,7 +15,7 @@
       </div>
       <!-- Card Iron Riff -->
       <div class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-3xl shadow-2xl flex flex-col items-center py-10 px-6 w-full max-w-3xl transition duration-300 hover:scale-105 hover:shadow-cyan-400/30 animate-fadein">
-        <img src="../assets/ironriff.png" alt="Iron Riff" class="w-full h-[340px] rounded-2xl object-cover mb-6 transition duration-300 hover:shadow-lg" />
+  <img src="../assets/ironriff.png" alt="Iron Riff" class="w-full h-[340px] rounded-2xl object-cover mb-6 transition duration-300 hover:shadow-lg" />
         <span class="text-white text-2xl font-bold text-center mt-2">Iron Riff</span>
       </div>
     </div>
@@ -95,13 +95,24 @@ img {
     max-width: 100vw;
     min-width: 0;
     height: auto;
+    border-radius: 2rem !important;
+    box-shadow: 0 4px 24px 0 #22d3ee33;
+    border: 2px solid #22d3ee;
+    padding: 1.2rem 0.7rem !important;
   }
   img {
-    max-height: 180px;
-    margin-bottom: 0.7rem !important;
+    max-height: 160px;
+    margin-bottom: 0.9rem !important;
+    border-radius: 1.5rem !important;
+    object-fit: contain !important;
+    background: #18181b;
   }
   .flex-col.items-center {
-    gap: 1.2rem;
+    gap: 2rem;
+  }
+  span.text-white.text-2xl {
+    font-size: 1.3rem !important;
+    margin-top: 0.7rem !important;
   }
 }
 </style>
