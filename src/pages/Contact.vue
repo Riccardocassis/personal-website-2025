@@ -1,9 +1,15 @@
 <template>
-  <div class="contact-viewport flex flex-col min-h-screen">
+  <div class="contact-viewport flex flex-col min-h-screen animated-gradient-bg">
     <section class="flex-1 flex flex-col justify-center items-center pt-20 md:pt-32 pb-8 px-4">
       <h1 class="text-5xl md:text-6xl font-extrabold mb-4 text-white text-center animate-contact-title">Contattami</h1>
       <h2 class="text-2xl md:text-3xl font-bold text-cyan-400 mb-8 text-center animate-contact-sub">Hai un progetto, una domanda o vuoi collaborare?</h2>
-      <div class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-3xl shadow-2xl w-full max-w-xl px-6 py-8 flex flex-col items-center gap-6 morphic-contact animate-fadein card-contact">
+      <div 
+        class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-3xl shadow-2xl w-full max-w-xl px-6 py-8 flex flex-col items-center gap-6 morphic-contact animate-fadein card-contact"
+        @mousemove="handleMouseMove"
+        @mouseleave="resetTilt"
+        ref="cardRef"
+        :style="cardStyle"
+      >
         <form class="w-full flex flex-col gap-5">
           <input type="text" placeholder="Nome" class="input-contact" />
           <input type="email" placeholder="Email" class="input-contact" />
@@ -16,7 +22,27 @@
   </div>
 </template>
 <script setup>
+import { ref } from 'vue'
 import Footer from '../components/Footer.vue'
+
+const cardRef = ref(null)
+const cardStyle = ref('')
+
+function handleMouseMove(e) {
+  const card = cardRef.value
+  if (!card) return
+  const rect = card.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const rotateX = ((y - centerY) / centerY) * 8
+  const rotateY = ((x - centerX) / centerX) * -8
+  cardStyle.value = `transform: perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg); transition: transform 0.12s;`
+}
+function resetTilt() {
+  cardStyle.value = 'transform: perspective(700px) rotateX(0deg) rotateY(0deg); transition: transform 0.3s;'
+}
 </script>
 
 <style scoped>
@@ -45,6 +71,12 @@ import Footer from '../components/Footer.vue'
   -webkit-backdrop-filter: blur(16px);
   border: 1.5px solid rgba(80, 200, 255, 0.25);
   background: rgba(30, 41, 59, 0.55);
+}
+
+.morphic-contact:hover {
+  box-shadow: 0 0 10px 2px #22d3ee44, 0 8px 32px 0 rgba(0,0,0,0.37);
+  border-color: #22d3ee;
+  transition: box-shadow 0.3s, border-color 0.3s;
 }
 
 .input-contact {
@@ -99,6 +131,39 @@ import Footer from '../components/Footer.vue'
   }
   .contact-viewport > footer {
     flex-shrink: 0;
+  }
+}
+
+/* Gradient morphic animato */
+
+ .animated-gradient-bg {
+  position: relative;
+  z-index: 0;
+  background: radial-gradient(ellipse 80% 60% at 20% 30%, #010409 0%, transparent 96%),
+              radial-gradient(ellipse 60% 40% at 80% 70%, #0a0a0a 0%, transparent 98%),
+              linear-gradient(120deg, #010409 0%, #0a0a0a 100%);
+  background-blend-mode: screen, lighten, normal;
+  animation: liquid-gradient 24s ease-in-out infinite;
+}
+
+@keyframes liquid-gradient {
+  0% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      0% 50%;
+  }
+  50% {
+    background-position:
+      80% 60%,
+      20% 80%,
+      100% 50%;
+  }
+  100% {
+    background-position:
+      0% 0%,
+      100% 100%,
+      0% 50%;
   }
 }
 </style>
