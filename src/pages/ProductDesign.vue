@@ -24,8 +24,21 @@
         <span class="text-white text-2xl font-bold text-center mt-2">Smart vase</span>
       </div>
     </div>
+    <!-- Suggerimento per Web Design -->
+    <div class="mt-16 flex justify-center">
+      <RouterLink to="/projects/web" class="next-suggestion">
+        <div class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-2xl shadow-lg px-8 py-5 flex items-center gap-4 hover:scale-105 transition cursor-pointer">
+          <span class="text-cyan-400 text-lg font-semibold">Scopri i progetti Web Design</span>
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-cyan-400"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </RouterLink>
+    </div>
   </section>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 
 <style scoped>
 @keyframes zoomin {
@@ -73,5 +86,8 @@ img {
   .flex-col.items-center {
     gap: 1.2rem;
   }
+}
+.next-suggestion {
+  text-decoration: none;
 }
 </style>

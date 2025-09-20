@@ -20,8 +20,21 @@
         <span class="text-white text-2xl font-bold text-center mt-2">Interactive guitar</span>
       </div>
     </div>
+    <!-- Suggerimento per Brand Design -->
+    <div class="mt-16 flex justify-center">
+      <RouterLink to="/projects/brand" class="next-suggestion">
+        <div class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-2xl shadow-lg px-8 py-5 flex items-center gap-4 hover:scale-105 transition cursor-pointer">
+          <span class="text-cyan-400 text-lg font-semibold">Scopri i progetti Brand Design</span>
+          <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" class="text-cyan-400"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </div>
+      </RouterLink>
+    </div>
   </section>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router';
+</script>
 
 <style scoped>
 @keyframes zoomin {
@@ -55,6 +68,9 @@ img {
   object-fit: contain !important;
   border-radius: 1rem;
   background: #18181b;
+}
+.next-suggestion {
+  text-decoration: none;
 }
 @media (max-width: 768px) {
   .bg-white\/10 {
