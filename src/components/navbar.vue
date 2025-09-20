@@ -49,7 +49,7 @@ onBeforeUnmount(() => {
           <img
             :src="logo"
             alt="Logo RC"
-            class="max-h-full max-w-full object-contain"
+            class="max-h-full max-w-full object-contain self-center"
           />
         </RouterLink>
       </div>
