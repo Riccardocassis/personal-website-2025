@@ -33,12 +33,18 @@ onBeforeUnmount(() => {
 
 <template>
   <!-- fissa sopra -->
-  <nav class="fixed top-0 left-0 right-0 bg-cyan-500 text-white z-50">
-    <div class="flex items-center justify-between py-4 max-w-7xl mx-auto w-full px-3 sm:px-4 md:px-6">
-      <!-- Logo vicino al bordo sx -->
-      <RouterLink to="/">
-        <img :src="logo" alt="Logo RC" class="h-8" />
-      </RouterLink>
+  <nav class="fixed top-0 left-0 right-0 bg-cyan-500 text-white z-50" style="height:70px;">
+    <div class="flex items-center justify-between max-w-7xl mx-auto w-full px-0 sm:px-0 md:px-0 h-full">
+      <!-- Logo RC desktop: più vicino, centrato, con padding e ombra -->
+      <div class="flex items-center h-full">
+        <RouterLink to="/" class="flex items-center justify-center" style="width:70px;height:70px;padding:7px;">
+          <img
+            :src="logo"
+            alt="Logo RC"
+            class="max-h-full max-w-full object-contain"
+          />
+        </RouterLink>
+      </div>
 
       <!-- Desktop menu -->
       <ul class="hidden md:flex items-center gap-8 text-lg">
