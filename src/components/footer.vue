@@ -1,3 +1,0 @@
-<template>
-  <!-- Footer vuoto -->
-</template>
