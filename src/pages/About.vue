@@ -108,6 +108,9 @@ onMounted(() => {
     bottom: 7.7rem !important;
     opacity: 0.8 !important;
   }
+  .about-container > footer {
+    margin-top: 3.5rem !important;
+  }
   section {
     padding-left: 0.7rem !important;
     padding-right: 0.7rem !important;
