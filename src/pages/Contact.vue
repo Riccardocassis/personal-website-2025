@@ -1,6 +1,51 @@
 <template>
-  <section class="pt-16 max-w-6xl mx-auto px-4 py-10">
-    <h1 class="text-3xl md:text-4xl font-bold">Contact</h1>
-    <p class="text-white/80 mt-4">Form o link ai social.</p>
+  <section class="pt-32 max-w-3xl mx-auto px-4 pb-20 flex flex-col items-center">
+    <h1 class="text-5xl font-extrabold mb-6 text-white">Contact</h1>
+    <h2 class="text-2xl font-bold text-cyan-400 mb-10">Parliamo di design!</h2>
+    <div class="bg-white/10 backdrop-blur-xl border border-cyan-400 rounded-3xl shadow-2xl w-full max-w-xl px-8 py-10 flex flex-col items-center gap-6 morphic-contact animate-fadein">
+      <form class="w-full flex flex-col gap-5">
+        <input type="text" placeholder="Nome" class="bg-black/40 border border-cyan-400 rounded-xl px-4 py-3 text-white placeholder-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" />
+        <input type="email" placeholder="Email" class="bg-black/40 border border-cyan-400 rounded-xl px-4 py-3 text-white placeholder-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition" />
+        <textarea placeholder="Messaggio" rows="4" class="bg-black/40 border border-cyan-400 rounded-xl px-4 py-3 text-white placeholder-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400 transition"></textarea>
+        <button type="submit" class="bg-cyan-400 text-black font-bold rounded-xl px-6 py-3 mt-2 hover:bg-cyan-500 transition">Invia</button>
+      </form>
+      <div class="flex gap-6 mt-4">
+        <a href="https://www.instagram.com/riccardocassis" target="_blank" class="hover:scale-110 transition">
+          <img src="../assets/icon-instagram.png" alt="Instagram" class="w-8 h-8" />
+        </a>
+        <a href="https://www.linkedin.com/in/riccardo-cassis" target="_blank" class="hover:scale-110 transition">
+          <img src="../assets/icon-linkedin.png" alt="LinkedIn" class="w-8 h-8" />
+        </a>
+        <a href="https://www.behance.net/riccardocassis" target="_blank" class="hover:scale-110 transition">
+          <img src="../assets/icon-behance.png" alt="Behance" class="w-8 h-8" />
+        </a>
+        <a href="https://github.com/riccardocassis" target="_blank" class="hover:scale-110 transition">
+          <img src="../assets/icon-github.png" alt="GitHub" class="w-8 h-8" />
+        </a>
+      </div>
+    </div>
   </section>
 </template>
+
+<style scoped>
+@keyframes fadein {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-fadein {
+  animation: fadein 0.8s cubic-bezier(.4,0,.2,1);
+}
+.morphic-contact {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(80, 200, 255, 0.25);
+  background: rgba(30, 41, 59, 0.55);
+}
+</style>
