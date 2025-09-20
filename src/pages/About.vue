@@ -10,11 +10,11 @@
       </p>
     </div>
     <div class="w-full flex flex-col items-center justify-center mt-16">
-      <img src="../assets/ioartista.png" alt="Artista" class="fixed left-0 bottom-0 w-[50vw] min-w-[400px] max-w-none object-contain z-0 pointer-events-none" />
-      <img src="../assets/ionerd.png" alt="Nerd" class="fixed right-0 bottom-0 w-[50vw] min-w-[400px] max-w-none object-contain z-0 pointer-events-none" />
-      <div class="relative w-full h-[400px] mt-2 flex items-end z-10">
-        <h2 class="w-full text-5xl md:text-6xl font-bold text-cyan-400 text-center mb-12 tracking-tight drop-shadow-lg" style="position:relative;">Il Giusto mix tra artista e nerd.</h2>
-      </div>
+    <img src="../assets/ioartista.png" alt="Artista" class="fixed left-0 bottom-0 w-[38vw] min-w-[320px] max-w-none object-contain z-0 pointer-events-none" />
+    <img src="../assets/ionerd.png" alt="Nerd" class="fixed right-0 bottom-0 w-[38vw] min-w-[320px] max-w-none object-contain z-0 pointer-events-none" />
+        <div class="relative w-full h-[400px] mt-2 z-10">
+          <h2 class="absolute left-1/2 -translate-x-1/2 top-[80px] w-auto text-4xl md:text-5xl font-bold text-cyan-400 flex justify-center items-center tracking-tight drop-shadow-lg" style="position:absolute;">Il Giusto mix tra artista e nerd.</h2>
+        </div>
     </div>
   </section>
 </template>
