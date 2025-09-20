@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { RouterLink } from 'vue-router'
 import logo from '../assets/logo-rc.png'
 
 const openDesktop = ref(false)      // dropdown desktop
@@ -35,12 +36,16 @@ onBeforeUnmount(() => {
   <nav class="fixed top-0 left-0 right-0 bg-cyan-500 text-white z-50">
     <div class="flex items-center justify-between py-4 max-w-7xl mx-auto w-full px-3 sm:px-4 md:px-6">
       <!-- Logo vicino al bordo sx -->
-      <img :src="logo" alt="Logo RC" class="h-8" />
+      <RouterLink to="/">
+        <img :src="logo" alt="Logo RC" class="h-8" />
+      </RouterLink>
 
       <!-- Desktop menu -->
       <ul class="hidden md:flex items-center gap-8 text-lg">
         <li>
-          <a href="#about" class="hover:underline underline-offset-4">About me</a>
+          <RouterLink to="/about" class="hover:underline underline-offset-4">
+            About me
+          </RouterLink>
         </li>
 
         <!-- Dropdown desktop -->
@@ -71,16 +76,30 @@ onBeforeUnmount(() => {
                        text-white shadow-lg overflow-hidden"
                 role="menu"
               >
-                <li><a href="#web-design"     class="block px-4 py-2 hover:bg-white/10" role="menuitem" @click="openDesktop=false">Web design</a></li>
-                <li><a href="#brand-design"   class="block px-4 py-2 hover:bg-white/10" role="menuitem" @click="openDesktop=false">Brand Design</a></li>
-                <li><a href="#product-design" class="block px-4 py-2 hover:bg-white/10" role="menuitem" @click="openDesktop=false">Product Design</a></li>
+                <li>
+                  <RouterLink to="/projects/web" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    Web design
+                  </RouterLink>
+                </li>
+                <li>
+                  <RouterLink to="/projects/brand" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    Brand Design
+                  </RouterLink>
+                </li>
+                <li>
+                  <RouterLink to="/projects/product" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    Product Design
+                  </RouterLink>
+                </li>
               </ul>
             </div>
           </transition>
         </li>
 
         <li>
-          <a href="#contact" class="hover:underline underline-offset-4">Contact</a>
+          <RouterLink to="/contact" class="hover:underline underline-offset-4">
+            Contact
+          </RouterLink>
         </li>
       </ul>
 
@@ -114,7 +133,9 @@ onBeforeUnmount(() => {
         class="md:hidden bg-cyan-500/95 backdrop-blur-sm text-white border-t border-white/10"
       >
         <div class="px-4 py-3 space-y-2">
-          <a href="#about" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">About me</a>
+          <RouterLink to="/about" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+            About me
+          </RouterLink>
 
           <!-- accordion Projects -->
           <div class="rounded">
@@ -137,14 +158,22 @@ onBeforeUnmount(() => {
               leave-to-class="opacity-0 -translate-y-1"
             >
               <div v-show="mobileProjects" class="mt-1 ml-2 space-y-1">
-                <a href="#web-design"     class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">Web design</a>
-                <a href="#brand-design"   class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">Brand Design</a>
-                <a href="#product-design" class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">Product Design</a>
+                <RouterLink to="/projects/web" class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+                  Web design
+                </RouterLink>
+                <RouterLink to="/projects/brand" class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+                  Brand Design
+                </RouterLink>
+                <RouterLink to="/projects/product" class="block px-3 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+                  Product Design
+                </RouterLink>
               </div>
             </transition>
           </div>
 
-          <a href="#contact" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">Contact</a>
+          <RouterLink to="/contact" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+            Contact
+          </RouterLink>
         </div>
       </div>
     </transition>

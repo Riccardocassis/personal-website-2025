@@ -6,6 +6,6 @@ import Hero from './components/hero.vue'
 <template>
   <div class="bg-black text-white min-h-screen">
     <Navbar />
-    <Hero />
+    <router-view />
   </div>
 </template>

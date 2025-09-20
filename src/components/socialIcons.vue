@@ -13,7 +13,7 @@
 
     <!-- LinkedIn -->
     <a
-      href="https://www.linkedin.com/in/riccardocassis"
+  href="https://www.linkedin.com/in/riccardo-cassis"
       target="_blank"
       rel="noopener noreferrer"
       class="rounded-full p-2 ring-1 ring-white/60 hover:bg-cyan-500 hover:ring-cyan-500 transition duration-300"
