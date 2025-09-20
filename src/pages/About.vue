@@ -103,10 +103,10 @@ onMounted(() => {
   }
   .fixed.left-0,
   .fixed.right-0 {
-    min-width: 90px !important;
-    width: 28vw !important;
-    bottom: 5.5rem !important;
-    opacity: 0.7 !important;
+    min-width: 140px !important;
+    width: 40vw !important;
+    bottom: 7.7rem !important;
+    opacity: 0.8 !important;
   }
   section {
     padding-left: 0.7rem !important;
