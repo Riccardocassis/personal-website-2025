@@ -1,33 +1,45 @@
 <template>
-  <section class="pt-32 max-w-5xl mx-auto px-6 relative pb-0">
-  <h1 class="text-6xl font-extrabold mb-14 tracking-tight text-white drop-shadow-lg">About me</h1>
-  <div class="flex flex-col md:flex-row gap-8 md:gap-16 mb-16 max-w-4xl mx-auto text-center md:text-left justify-center">
-      <p class="text-white/90 text-lg leading-relaxed drop-shadow-sm">
-        Ho sempre nutrito una forte passione per i computer e per il mondo della creatività in tutte le sue espressioni. Amo mettermi continuamente alla prova e lavorare a stretto contatto con le persone. La curiosità e il desiderio di apprendere da nuove esperienze sono la mia principale fonte di energia e la bussola che orienta le mie scelte.
-      </p>
-      <p class="text-white/90 text-lg leading-relaxed drop-shadow-sm">
-        Ritengo che il Design non sia soltanto una disciplina fine a se stessa, ma una forma mentis applicabile nei campi più disparati e in ogni sfaccettatura della vita. Progettare per me è come un gioco di strategia, durante il quale coniugo creatività e analisi tecnica delle problematiche per arrivare al processo che mi porta alla soluzione.
-      </p>
-    </div>
-    <div class="w-full flex flex-col items-center justify-center mt-16 relative">
-      <!-- Desktop: immagini ai lati, attaccate ai bordi e sopra il footer -->
-      <div class="hidden md:block">
-        <img src="../assets/ioartista.png" alt="Artista" class="fixed left-0 bottom-20 w-[38vw] min-w-[220px] max-w-none object-contain opacity-70 transition duration-300 z-10" />
-        <img src="../assets/ionerd.png" alt="Nerd" class="fixed right-0 bottom-20 w-[38vw] min-w-[220px] max-w-none object-contain opacity-70 transition duration-300 z-10" />
+  <div class="h-screen flex flex-col bg-black overflow-hidden">
+    <section class="flex-1 flex flex-col justify-center items-center px-8">
+      <h1 class="text-6xl font-extrabold mb-8 tracking-tight text-white text-center">About me</h1>
+      <div class="max-w-2xl text-white/90 text-lg leading-relaxed mb-8 text-center">
+        Ho sempre avuto una grande passione per i computer e per tutto ciò che riguarda la creatività. Mi piace mettermi in gioco, lavorare insieme agli altri e imparare da ogni nuova esperienza.<br>
+        Per me il design non è solo una professione, ma un modo di pensare che si può applicare in tanti ambiti diversi.<br>
+        Quando progetto lo vivo come una sfida strategica: mescolo creatività e analisi per trasformare un problema in una soluzione.
       </div>
-      <!-- Mobile: una sola foto sotto il titolo -->
-      <div class="block md:hidden w-full flex justify-center mb-6">
-        <img src="../assets/ioartista.png" alt="Artista" class="w-[70vw] max-w-xs object-contain opacity-70" />
-      </div>
-      <div class="relative w-full h-[400px] mt-2 z-10 flex items-center justify-center">
-        <h2 class="w-full text-4xl md:text-5xl font-bold text-cyan-400 flex justify-center items-center tracking-tight drop-shadow-lg transition duration-300 text-center">Il Giusto mix tra artista e nerd.</h2>
-      </div>
-    </div>
-  </section>
-  <div class="relative w-full z-20 mt-0">
+      <h2 class="text-4xl font-bold text-cyan-400 text-center">
+        <span>{{ artistaCount }}% Artista</span><br>
+        <span>{{ nerdCount }}% Nerd</span>
+      </h2>
+    </section>
+    <!-- Immagini fisse ai lati sopra il footer -->
+  <img src="../assets/ioartista.png" alt="Artista" class="fixed left-0 bottom-20 w-[32vw] min-w-[180px] max-w-none object-contain opacity-80 z-10 pointer-events-none" />
+  <img src="../assets/ionerd.png" alt="Nerd" class="fixed right-0 bottom-20 w-[32vw] min-w-[180px] max-w-none object-contain opacity-80 z-10 pointer-events-none" />
+    <!-- Footer originale statico -->
     <Footer />
   </div>
 </template>
 <script setup>
+import { ref, onMounted } from 'vue'
 import Footer from '../components/Footer.vue'
+
+const artistaCount = ref(0)
+const nerdCount = ref(0)
+
+function animateCount(target, refVar) {
+  let current = 0
+  const interval = setInterval(() => {
+    if (current < target) {
+      current++
+      refVar.value = current
+    } else {
+      clearInterval(interval)
+    }
+  }, 18)
+}
+
+onMounted(() => {
+  animateCount(50, artistaCount)
+  setTimeout(() => animateCount(50, nerdCount), 400)
+})
 </script>
