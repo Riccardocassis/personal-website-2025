@@ -48,59 +48,58 @@ onBeforeUnmount(() => {
 
       <!-- Desktop menu -->
       <ul class="hidden md:flex items-center gap-8 text-lg">
-        <li>
-          <RouterLink to="/about" class="hover:underline underline-offset-4">
-            About me
-          </RouterLink>
-        </li>
+          <!-- Dropdown desktop -->
+          <li class="relative" ref="desktopRef">
+            <button
+              @click="openDesktop = !openDesktop"
+              class="hover:underline underline-offset-4 flex items-center gap-1 focus:outline-none"
+              aria-haspopup="menu"
+              :aria-expanded="openDesktop"
+            >
+              Projects
+              <svg :class="openDesktop ? 'rotate-180' : ''" class="w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" clip-rule="evenodd"/>
+              </svg>
+            </button>
 
-        <!-- Dropdown desktop -->
-        <li class="relative" ref="desktopRef">
-          <button
-            @click="openDesktop = !openDesktop"
-            class="hover:underline underline-offset-4 flex items-center gap-1 focus:outline-none"
-            aria-haspopup="menu"
-            :aria-expanded="openDesktop"
-          >
-            Projects
-            <svg :class="openDesktop ? 'rotate-180' : ''" class="w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="currentColor">
-              <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 10.94l3.71-3.71a.75.75 0 1 1 1.06 1.06l-4.24 4.24a.75.75 0 0 1-1.06 0L5.21 8.29a.75.75 0 0 1 .02-1.08z" clip-rule="evenodd"/>
-            </svg>
-          </button>
-
-          <transition
-            enter-active-class="transition duration-150 ease-out"
-            enter-from-class="opacity-0 translate-y-1"
-            enter-to-class="opacity-100 translate-y-0"
-            leave-active-class="transition duration-100 ease-in"
-            leave-from-class="opacity-100 translate-y-0"
-            leave-to-class="opacity-0 translate-y-1"
-          >
-            <div v-show="openDesktop" class="absolute left-0 top-full mt-3 z-[60]">
-              <ul
-                class="min-w-[220px] rounded-2xl border border-white/15 bg-black/30 backdrop-blur-md
-                       text-white shadow-lg overflow-hidden"
-                role="menu"
-              >
-                <li>
-                  <RouterLink to="/projects/web" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
-                    Web design
-                  </RouterLink>
-                </li>
-                <li>
-                  <RouterLink to="/projects/brand" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
-                    Brand Design
-                  </RouterLink>
-                </li>
-                <li>
-                  <RouterLink to="/projects/product" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
-                    Product Design
-                  </RouterLink>
-                </li>
-              </ul>
-            </div>
-          </transition>
-        </li>
+            <transition
+              enter-active-class="transition duration-150 ease-out"
+              enter-from-class="opacity-0 translate-y-1"
+              enter-to-class="opacity-100 translate-y-0"
+              leave-active-class="transition duration-100 ease-in"
+              leave-from-class="opacity-100 translate-y-0"
+              leave-to-class="opacity-0 translate-y-1"
+            >
+              <div v-show="openDesktop" class="absolute left-1/2 top-full mt-3 z-[60] transform -translate-x-1/2 min-w-[300px]">
+                <ul
+                  class="min-w-[320px] px-6 py-4 rounded-lg bg-cyan-500/95 backdrop-blur-xl text-white shadow-2xl shadow-black/30 overflow-hidden space-y-2 transition-all duration-300 ease-out"
+                  role="menu"
+                >
+                  <li>
+                    <RouterLink to="/projects/web" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                      Web design
+                    </RouterLink>
+                  </li>
+                  <li>
+                    <RouterLink to="/projects/brand" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                      Brand Design
+                    </RouterLink>
+                  </li>
+                  <li>
+                    <RouterLink to="/projects/product" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                      Product Design
+                    </RouterLink>
+                  </li>
+                </ul>
+              </div>
+            <transition
+              enter-active-class="transition-all duration-300 ease-out"
+              enter-from-class="opacity-0 -translate-x-5"
+              enter-to-class="opacity-100 translate-x-0"
+              leave-active-class="transition-all duration-200 ease-in"
+              leave-from-class="opacity-100 translate-x-0"
+              leave-to-class="opacity-0 -translate-x-5"
+            >
 
         <li>
           <RouterLink to="/contact" class="hover:underline underline-offset-4">
@@ -139,9 +138,6 @@ onBeforeUnmount(() => {
         class="md:hidden bg-cyan-500/95 backdrop-blur-sm text-white border-t border-white/10"
       >
         <div class="px-4 py-3 space-y-2">
-          <RouterLink to="/about" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
-            About me
-          </RouterLink>
 
           <!-- accordion Projects -->
           <div class="rounded">
@@ -176,6 +172,10 @@ onBeforeUnmount(() => {
               </div>
             </transition>
           </div>
+
+          <RouterLink to="/about" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
+            About me
+          </RouterLink>
 
           <RouterLink to="/contact" class="block px-2 py-2 rounded hover:bg-white/10" @click="mobileOpen=false">
             Contact
