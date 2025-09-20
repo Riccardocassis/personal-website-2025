@@ -4,6 +4,14 @@ import { RouterLink } from 'vue-router'
 import logo from '../assets/logo-rc.png'
 
 const openDesktop = ref(false)      // dropdown desktop
+
+// Funzioni per hover dropdown desktop
+function openDropdown() {
+  openDesktop.value = true
+}
+function closeDropdown() {
+  openDesktop.value = false
+}
 const mobileOpen = ref(false)       // menu mobile
 const mobileProjects = ref(false)   // accordion Projects nel mobile
 
@@ -49,12 +57,21 @@ onBeforeUnmount(() => {
       <!-- Desktop menu -->
       <ul class="hidden md:flex items-center gap-8 text-lg">
           <!-- Dropdown desktop -->
-          <li class="relative" ref="desktopRef">
+      <li class="relative" ref="desktopRef"
+        @mouseenter="openDropdown"
+        @mouseleave="closeDropdown"
+        style="display:inline-block;">
             <button
-              @click="openDesktop = !openDesktop"
-              class="hover:underline underline-offset-4 flex items-center gap-1 focus:outline-none"
+              :class="[
+                'flex items-center gap-1 focus:outline-none px-7 py-2 font-semibold text-lg',
+                openDesktop
+                  ? 'bg-white/20 backdrop-blur-lg border border-white/30 text-white rounded-t-3xl shadow-lg drop-shadow-lg'
+                  : 'hover:underline underline-offset-4 text-white'
+              ]"
               aria-haspopup="menu"
               :aria-expanded="openDesktop"
+              tabindex="0"
+              style="transition:background 0.15s, color 0.15s;"
             >
               Projects
               <svg :class="openDesktop ? 'rotate-180' : ''" class="w-4 h-4 transition-transform" viewBox="0 0 20 20" fill="currentColor">
@@ -70,36 +87,37 @@ onBeforeUnmount(() => {
               leave-from-class="opacity-100 translate-y-0"
               leave-to-class="opacity-0 translate-y-1"
             >
-              <div v-show="openDesktop" class="absolute left-1/2 top-full mt-3 z-[60] transform -translate-x-1/2 min-w-[300px]">
+              <div v-show="openDesktop" class="absolute left-0 z-[60]" :style="{top: '100%'}">
                 <ul
-                  class="min-w-[320px] px-6 py-4 rounded-lg bg-cyan-500/95 backdrop-blur-xl text-white shadow-2xl shadow-black/30 overflow-hidden space-y-2 transition-all duration-300 ease-out"
+                  class="min-w-[320px] bg-white/20 backdrop-blur-lg border border-white/30 text-white rounded-b-3xl shadow-lg drop-shadow-lg overflow-hidden pt-6 pb-8 flex flex-col gap-8"
                   role="menu"
+                  style="border-top-left-radius:0;border-top-right-radius:0;"
                 >
                   <li>
-                    <RouterLink to="/projects/web" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    <RouterLink to="/projects/web" class="block px-10 py-2 text-xl font-normal hover:bg-white/30 transition-colors" @click="openDesktop=false">
                       Web design
                     </RouterLink>
                   </li>
                   <li>
-                    <RouterLink to="/projects/brand" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    <RouterLink to="/projects/brand" class="block px-10 py-2 text-xl font-normal hover:bg-white/30 transition-colors" @click="openDesktop=false">
                       Brand Design
                     </RouterLink>
                   </li>
                   <li>
-                    <RouterLink to="/projects/product" class="block px-4 py-2 hover:bg-white/10" @click="openDesktop=false">
+                    <RouterLink to="/projects/product" class="block px-10 py-2 text-xl font-normal hover:bg-white/30 transition-colors" @click="openDesktop=false">
                       Product Design
                     </RouterLink>
                   </li>
                 </ul>
               </div>
-            <transition
-              enter-active-class="transition-all duration-300 ease-out"
-              enter-from-class="opacity-0 -translate-x-5"
-              enter-to-class="opacity-100 translate-x-0"
-              leave-active-class="transition-all duration-200 ease-in"
-              leave-from-class="opacity-100 translate-x-0"
-              leave-to-class="opacity-0 -translate-x-5"
-            >
+            </transition>
+          </li>
+
+          <li>
+            <RouterLink to="/about" class="hover:underline underline-offset-4">
+              About me
+            </RouterLink>
+          </li>
 
         <li>
           <RouterLink to="/contact" class="hover:underline underline-offset-4">
