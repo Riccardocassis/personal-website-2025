@@ -54,7 +54,7 @@ import { RouterLink } from 'vue-router';
 .flex-col.items-center {
   flex-direction: column !important;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 .bg-white\/10 {
   width: 100%;
