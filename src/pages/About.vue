@@ -86,4 +86,31 @@ onMounted(() => {
 .delay-400 {
   animation-delay: 0.4s !important;
 }
+/* Ottimizzazione mobile About */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2.2rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .max-w-2xl {
+    max-width: 22rem !important;
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  h2 {
+    font-size: 1.7rem !important;
+    margin-bottom: 1.2rem !important;
+  }
+  .fixed.left-0,
+  .fixed.right-0 {
+    min-width: 90px !important;
+    width: 28vw !important;
+    bottom: 5.5rem !important;
+    opacity: 0.7 !important;
+  }
+  section {
+    padding-left: 0.7rem !important;
+    padding-right: 0.7rem !important;
+  }
+}
 </style>
