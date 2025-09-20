@@ -89,7 +89,7 @@ onBeforeUnmount(() => {
             >
               <div v-show="openDesktop" class="absolute left-0 z-[60]" :style="{top: '100%'}">
                 <ul
-                  class="min-w-[320px] bg-white/20 backdrop-blur-lg border border-white/30 text-white rounded-b-3xl shadow-lg drop-shadow-lg overflow-hidden pt-6 pb-8 flex flex-col gap-8"
+                  class="min-w-[240px] max-w-[260px] bg-white/20 backdrop-blur-lg border border-white/30 text-white rounded-b-2xl shadow-lg drop-shadow-lg overflow-hidden pt-6 pb-8 flex flex-col gap-8"
                   role="menu"
                   style="border-top-left-radius:0;border-top-right-radius:0;"
                 >
