@@ -41,4 +41,37 @@
 .animate-fadein {
   animation: zoomin 0.8s cubic-bezier(.4,0,.2,1);
 }
+.flex-col.items-center {
+  flex-direction: column !important;
+  align-items: center;
+  gap: 2rem;
+}
+.bg-white\/10 {
+  width: 100%;
+  max-width: 900px;
+  min-width: 0;
+}
+img {
+  margin-bottom: 1rem !important;
+  width: 100%;
+  height: auto !important;
+  max-height: 340px;
+  object-fit: contain !important;
+  border-radius: 1rem;
+  background: #18181b;
+}
+@media (max-width: 768px) {
+  .bg-white\/10 {
+    max-width: 100vw;
+    min-width: 0;
+    height: auto;
+  }
+  img {
+    max-height: 180px;
+    margin-bottom: 0.7rem !important;
+  }
+  .flex-col.items-center {
+    gap: 1.2rem;
+  }
+}
 </style>
